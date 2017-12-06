@@ -1,0 +1,70 @@
+----View 1: Count the randomArrayItems
+{
+   "_id": "_design/query1",
+   "_rev": "1-656ea405c0a39918d177712a23800d43",
+   "language": "javascript",
+   "views": {
+       "query1": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n var person = doc.data[i];\n emit(person.randomArrayItem,1);\n }\n}",
+           "reduce": "function (keys, values) {\n return sum(values);\n}"
+       }
+   }
+}
+----View 2: Names of people with max age by gender and isActive
+{
+   "_id": "_design/query2",
+   "_rev": "1-e5f48d65238563927679d68493ca73b4",
+   "language": "javascript",
+   "views": {
+       "query2": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n\tvar person = doc.data[i];\n \temit([person.gender, person.isActive],{age:person.age, name:person.name});\n }\n}",
+           "reduce": "function (keys, values){\n  var max= -Infinity;\n  for(var i in values){\n   max = Math.max(values[i].age, max);\n }\n  var arr = [];\n  for(var i in values){\n   if(values[i].age==max) arr.push(values[i].name);\n }\n  return {max:max,names:arr};\n}"
+       }
+   }
+}
+----View 3: Count of people by tag
+{
+   "_id": "_design/query3",
+   "_rev": "1-14e0b3e9265d3f825a14f5bdb764267e",
+   "language": "javascript",
+   "views": {
+       "query3": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n\tvar person = doc.data[i];\n\tfor(var j = 0; j<person.tags.length; j++){\n\t\temit (person.tags[j],1);\n\t}\n\t\n }\n}",
+           "reduce": "function (keys, values){\n  return values.length;\n}"
+       }
+   }
+}
+----View 4: Average age by company
+{
+   "_id": "_design/query4",
+   "_rev": "1-db429e8b20e63f62f1b3ed82fa3c31ef",
+   "language": "javascript",
+   "views": {
+       "query4": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n\tvar person = doc.data[i];\n\temit(person.company, person.age);\t\n }\n}",
+           "reduce": "function (keys, values){\n  var num = sum(values)/values.length\n  return num.toPrecision(3);\n}"
+       }
+   }
+}
+----View 5: Geo data when lattitude is over 80
+{
+   "_id": "_design/query5",
+   "_rev": "1-23344f96fc056cd48b58ee47919d9330",
+   "language": "javascript",
+   "views": {
+       "query5": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n\tvar person = doc.data[i];\n\tif(person.latitude>80){\n\temit(person.id, {latitude: person.latitude, longitude: person.longitude, address:person.address});\n  }\n }\n}"
+       }
+   }
+}
+----View 6: Names of people and their friends where their friends' name starts with J
+{
+   "_id": "_design/query6",
+   "_rev": "1-43e7d515744767efa1f43917689c6fb3",
+   "language": "javascript",
+   "views": {
+       "query6": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n   var person = doc.data[i];\n   for(var j= 0; j<person.friends.length;j++){\n    if(person.friends[j].name.charAt(0)=='J'){\n     emit(person.name, person.friends[j].name);\n   }\n  }\n }\n}"
+       }
+   }
+}
