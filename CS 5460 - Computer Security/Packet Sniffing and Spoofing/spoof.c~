@@ -1,0 +1,6 @@
+int sd;
+struct sockaddr_in sin;
+char buffer[1024]; // You can change the buffer size
+/* Create a raw socket with IP protocol. The IPPROTO_RAW parameter
+* tells the sytem that the IP header is already included;
+
