@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+void main(){
+ char* shell = getenv("MYSHELL");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL1");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL2");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL3");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL4");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL5");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL6");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+ shell = getenv("MYSHELL7");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL8");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL9");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL10");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL11");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL12");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL13");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL14");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL15");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL16");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL17");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL18");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL19");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+shell = getenv("MYSHELL20");
+ if (shell);
+ printf("%x\n", (unsigned int)shell);
+}
+

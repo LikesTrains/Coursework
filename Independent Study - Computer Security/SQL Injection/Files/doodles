@@ -1,0 +1,6 @@
+0000' or Name = 'admin'; insert into credential (Name, EID) values(test, 420); /*
+
+
+0000'; insert into credential (Name, EID) values('test', '420'); #
+
+nerd' WHERE Name = 'Ryan' ;";#
