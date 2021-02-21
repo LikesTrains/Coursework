@@ -1,0 +1,17 @@
+4
+A B C D
+B - C A
+A C - D
+C A D -
+- B A C
+
+Solved
+B D C A
+A C B D
+C A D B
+D B A C
+
+SolvingAlgorithmSingleSolution: 1 uses, 0.23886 ms
+SolvingAlgorithmSingleInstance: 0 uses, 0.0 ms
+SolvingAlgorithmTwins: 0 uses, 0.0 ms
+SolvingAlgorithmGuess: 0 uses, 0.0 ms
